@@ -14,6 +14,9 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 func GetUser(w http.ResponseWriter, r *http.Request) {
 	functions.GetUser(w, r)
 }
+func GetUsersByNickOrName(w http.ResponseWriter, r *http.Request) {
+	functions.GetUsersByNickOrName(w, r)
+}
 func UpdateUser(w http.ResponseWriter, r *http.Request) {
 	functions.UpdateUser(w, r)
 }

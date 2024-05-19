@@ -6,15 +6,20 @@ import (
 	"api-social-media/app/models"
 	"context"
 	"net/http"
+	"strings"
 )
 
-func GetUsers(w http.ResponseWriter, r *http.Request) {
+func GetUsersByNickOrName(w http.ResponseWriter, r *http.Request) {
 	conn := db.SetupDB()
 	defer conn.Close(context.Background())
 
-	query := "SELECT * FROM users"
+	query := "SELECT * FROM users lower(name) LIKE $1 OR lower(nick) LIKE $1"
 	var users []models.User
-	rows, err := conn.Query(context.Background(), query)
+	nameOrNick := "%" + strings.ToLower(r.URL.Query().Get("user")) + "%"
+	rows, err := conn.Query(context.Background(),
+		query,
+		nameOrNick,
+	)
 	if err != nil {
 		responses.Err(w, http.StatusBadRequest, err)
 	}
