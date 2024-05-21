@@ -25,7 +25,7 @@ func GetUsersByNickOrName(w http.ResponseWriter, r *http.Request) {
 	}
 
 	nameOrNick := "%" + strings.ToLower(user_param) + "%"
-
+	// abc
 	rows, err := conn.Query(context.Background(), query, nameOrNick)
 	if err != nil {
 		responses.Err(w, http.StatusBadRequest, err)
