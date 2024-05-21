@@ -31,7 +31,7 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 
 	if err := rows.Err(); err != nil {
 		responses.Err(w, http.StatusBadRequest, err)
-
+		return
 	}
 	responses.JSON(w, http.StatusOK, users)
 	if err != nil {
