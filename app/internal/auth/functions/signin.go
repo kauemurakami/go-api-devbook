@@ -18,6 +18,12 @@ func Signin(w http.ResponseWriter, r *http.Request) {
 
 	conn := db.SetupDB()
 	defer conn.Close(context.Background())
+	tx, err := conn.Begin(context.Background())
+	if err != nil {
+		responses.Err(w, http.StatusInternalServerError, err)
+		return
+	}
+	defer tx.Rollback(context.Background())
 	// Ler o corpo da requisição
 	var requestBody struct {
 		Email string `json:"email"`
@@ -38,7 +44,7 @@ func Signin(w http.ResponseWriter, r *http.Request) {
 	// Consultar o banco de dados para obter o usuário pelo email
 	query := "SELECT id, email, pass FROM users WHERE lower(email) = $1"
 	var user models.User
-	err := conn.QueryRow(context.Background(), query, email).Scan(&user.ID, &user.Email, &user.Pass)
+	err = tx.QueryRow(context.Background(), query, email).Scan(&user.ID, &user.Email, &user.Pass)
 	if err != nil {
 		if err == pgx.ErrNoRows {
 			responses.Err(w, http.StatusNotFound, errors.New("usuário não encontrado"))
@@ -54,7 +60,7 @@ func Signin(w http.ResponseWriter, r *http.Request) {
 	}
 
 	query = "SELECT id, name, email, pass, nick, created_at FROM users WHERE id = $1"
-	err = conn.QueryRow(context.Background(), query, user.ID).Scan(
+	err = tx.QueryRow(context.Background(), query, user.ID).Scan(
 		&user.ID, &user.Name, &user.Email, &user.Pass, &user.Nick, &user.CreatedAt,
 	)
 	if err != nil {
@@ -68,7 +74,7 @@ func Signin(w http.ResponseWriter, r *http.Request) {
 
 	query = "SELECT token FROM user_token WHERE user_id = $1"
 	var token string
-	err = conn.QueryRow(context.Background(), query, user.ID).Scan(&token)
+	err = tx.QueryRow(context.Background(), query, user.ID).Scan(&token)
 	if err != nil {
 		if err == pgx.ErrNoRows {
 			responses.Err(w, http.StatusNotFound, errors.New("token não encontrado para o usuário"))

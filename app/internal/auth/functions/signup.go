@@ -2,7 +2,7 @@ package auth_functions
 
 import (
 	"api-social-media/app/core/db"
-	"api-social-media/app/core/helpers/auth_token"
+	auth_token "api-social-media/app/core/helpers/auth"
 	responses "api-social-media/app/core/helpers/response"
 	"api-social-media/app/models"
 	"context"

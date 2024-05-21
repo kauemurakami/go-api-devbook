@@ -1,7 +1,7 @@
 package middlewares
 
 import (
-	"api-social-media/app/core/helpers/auth_token"
+	auth_token "api-social-media/app/core/helpers/auth"
 	responses "api-social-media/app/core/helpers/response"
 	"net/http"
 )
