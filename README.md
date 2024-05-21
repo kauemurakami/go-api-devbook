@@ -1,7 +1,9 @@
 ## Driver Postgress
 ```shell 
-go get github.com/lib/pq
+go get github.com/jackc/pgx  
+go get github.com/jackc/pgx/v5/pgconn@v5.5.5
 ```  
+
 
 ## Create .env
 ```go get github.com/joho/godotenv```  
@@ -88,3 +90,10 @@ migrate -database postgres://DB_USER:DB_PASS@DB_HOST:DB_PORT/DB_NAME?sslmode=dis
 ```shell
 migrate -database postgres://DB_USER:DB_PASS@DB_HOST:DB_PORT/DB_NAME?sslmode=disable -path ./app/core/db/migrations down 
 ```
+
+...
+...
+go get github.com/dgrijalva/jwt-go
+...
+go get golang.org/x/crypto/bcrypt 
+...

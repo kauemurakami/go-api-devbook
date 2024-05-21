@@ -20,7 +20,7 @@ func GetUsersByNickOrName(w http.ResponseWriter, r *http.Request) {
 	// Extrair o parâmetro de consulta 'user'
 	user_param := r.URL.Query().Get("user")
 	if user_param == "" {
-		responses.Err(w, http.StatusBadRequest, errors.New("Favor informar palavra chave para pesquisa"))
+		responses.Err(w, http.StatusBadRequest, errors.New("favor informar palavra chave para pesquisa"))
 		return
 	}
 

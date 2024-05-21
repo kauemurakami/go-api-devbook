@@ -31,7 +31,7 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 		&user.ID, &user.Name, &user.Nick, &user.Email, &user.Pass, &user.CreatedAt,
 	)
 	if err != nil {
-		responses.Err(w, http.StatusNotFound, errors.New("Usuário não encontrado"))
+		responses.Err(w, http.StatusNotFound, errors.New("usuário não encontrado"))
 		return
 	}
 

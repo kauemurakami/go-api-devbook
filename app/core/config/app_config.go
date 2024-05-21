@@ -12,6 +12,7 @@ var (
 	Connection_string = ""
 	DB_url            = ""
 	API_port          = ""
+	SECRET_KEY        []byte
 )
 
 func SetupEnvironments() {
@@ -45,4 +46,6 @@ func SetupEnvironments() {
 			os.Getenv("DB_NAME"),
 			os.Getenv("DB_SSL"),
 		)
+
+	SECRET_KEY = []byte(os.Getenv("SECRET_KEY"))
 }

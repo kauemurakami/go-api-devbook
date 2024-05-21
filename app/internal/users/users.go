@@ -1,7 +1,7 @@
 package users
 
 import (
-	functions "api-social-media/app/internal/users/users_functions"
+	functions "api-social-media/app/internal/users/functions"
 	"net/http"
 )
 

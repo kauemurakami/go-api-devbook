@@ -22,7 +22,7 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 	if err = json.Unmarshal(body, &user); err != nil {
 		responses.Err(w, http.StatusBadRequest, err)
 	}
-	if err = user.Prepare(); err != nil {
+	if err = user.Prepare("cadastro"); err != nil {
 		responses.Err(w, http.StatusBadRequest, err)
 		return
 	}
