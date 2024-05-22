@@ -11,12 +11,12 @@ import (
 )
 
 type User struct {
-	ID        uuid.UUID `json:"id,omityempty"`
-	Name      string    `json:"name,omityempty"`
-	Nick      string    `json:"nick,omityempty"`
-	Email     string    `json:"email,omityempty"`
-	Pass      string    `json:"pass,omityempty"`
-	CreatedAt time.Time `json:"created_at,omityempty"`
+	ID        uuid.UUID `json:"id"`
+	Name      string    `json:"name"`
+	Nick      string    `json:"nick"`
+	Email     string    `json:"email"`
+	Pass      string    `json:"pass"`
+	CreatedAt time.Time `json:"created_at"`
 }
 
 func (user *User) Prepare(step string) error {
