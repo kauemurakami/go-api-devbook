@@ -45,7 +45,7 @@ func GetPost(w http.ResponseWriter, r *http.Request) {
 	err = row.Scan(&post.ID, &post.Title, &post.Content, &post.AuthorID, &post.AuthorNick, &post.Likes, &post.CreatedAt)
 	if err != nil {
 		if err == pgx.ErrNoRows {
-			responses.Err(w, http.StatusNotFound, errors.New("Post não encontrado"))
+			responses.Err(w, http.StatusNotFound, errors.New("post não encontrado"))
 		} else {
 			responses.Err(w, http.StatusInternalServerError, err)
 		}
