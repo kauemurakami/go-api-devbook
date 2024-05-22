@@ -9,7 +9,6 @@ import (
 )
 
 func SetupAppRoutes() *mux.Router {
-	// users.SetupUserRoutes(router)
 	router := mux.NewRouter()
 	auth.SetupAuthRoutes(router)
 	users.SetupUserRoutes(router)
