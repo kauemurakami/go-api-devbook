@@ -1,10 +1,10 @@
 package auth_functions
 
 import (
-	"api-social-media/app/core/db"
 	responses "api-social-media/app/core/helpers/response"
 	sec "api-social-media/app/core/secutiry"
-	"api-social-media/app/models"
+	"api-social-media/app/data/db"
+	"api-social-media/app/data/models"
 	"context"
 	"encoding/json"
 	"errors"

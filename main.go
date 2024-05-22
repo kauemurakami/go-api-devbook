@@ -2,8 +2,8 @@ package main
 
 import (
 	app_config "api-social-media/app/core/config"
-	"api-social-media/app/core/db"
 	"api-social-media/app/core/middlewares"
+	"api-social-media/app/data/db"
 	"api-social-media/app/routes"
 	"fmt"
 	"log"

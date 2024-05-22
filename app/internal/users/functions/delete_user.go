@@ -1,8 +1,8 @@
 package users_functions
 
 import (
-	"api-social-media/app/core/db"
 	responses "api-social-media/app/core/helpers/response"
+	"api-social-media/app/data/db"
 	"context"
 	"encoding/json"
 	"net/http"
