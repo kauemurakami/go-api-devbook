@@ -10,7 +10,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetPosts(w http.ResponseWriter, r *http.Request) {
-	functions.GetPost(w, r)
+	functions.GetPosts(w, r)
 }
 func GetPost(w http.ResponseWriter, r *http.Request) {
 	functions.GetPost(w, r)

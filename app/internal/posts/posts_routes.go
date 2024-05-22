@@ -6,11 +6,11 @@ import (
 )
 
 func SetupPostsRoutes(router *mux.Router) {
-	router.HandleFunc("/users/posts", CreatePost).Methods(http.MethodPost)
-	router.HandleFunc("/users/posts", GetPosts).Methods(http.MethodGet)
-	router.HandleFunc("/users/posts/{id}", GetPost).Methods(http.MethodGet)
-	router.HandleFunc("/users/posts/{id}", DeletePost).Methods(http.MethodDelete)
-	router.HandleFunc("/users/posts", UpdatePost).Methods(http.MethodPut)
-	router.HandleFunc("/users/posts/{id}/like", LikePost).Methods(http.MethodPut)
-	router.HandleFunc("/users/posts/{id}/unlike", UnlikePost).Methods(http.MethodPut)
+	router.HandleFunc("/posts", CreatePost).Methods(http.MethodPost)
+	router.HandleFunc("/posts", GetPosts).Methods(http.MethodGet)
+	router.HandleFunc("/posts/{id}", GetPost).Methods(http.MethodGet)
+	router.HandleFunc("/posts/{id}", DeletePost).Methods(http.MethodDelete)
+	router.HandleFunc("/posts", UpdatePost).Methods(http.MethodPut)
+	router.HandleFunc("/posts/{id}/like", LikePost).Methods(http.MethodPut)
+	router.HandleFunc("/posts/{id}/unlike", UnlikePost).Methods(http.MethodPut)
 }
